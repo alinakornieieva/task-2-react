@@ -3,7 +3,7 @@ import { SummaryTable } from "../../components/SummaryTable/SummaryTable";
 import { NotesList } from "../../components/NotesList/NotesList";
 import { useAppDispatch } from "../../store/hooks";
 import { toggleForm } from "../../store/slice";
-import Button from "react-bootstrap/Button";
+import { Button } from "../../components/Button/Button";
 
 export const ActivePage = () => {
   const dispatch = useAppDispatch();
@@ -11,9 +11,7 @@ export const ActivePage = () => {
     <>
       <FormComp />
       <NotesList />
-      <Button onClick={() => dispatch(toggleForm())} variant="primary mb-3">
-        Add note
-      </Button>
+      <Button text="Add note" handleClick={() => dispatch(toggleForm())} />
       <SummaryTable />
     </>
   );

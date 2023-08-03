@@ -14,7 +14,7 @@ export const SummaryTable = () => {
     });
   });
   return (
-    <Table bordered>
+    <Table bordered className="mt-3">
       <thead>
         <tr>
           <th>Note Category</th>

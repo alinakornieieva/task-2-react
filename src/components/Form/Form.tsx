@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { addNote, changeEdit, updateNote, toggleForm } from "../../store/slice";
 import { INote } from "../../models/INote";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
 import "./Form.css";
 
 export const FormComp = () => {
@@ -74,10 +75,12 @@ export const FormComp = () => {
   return (
     <div className={`form-component ${openForm && "show"}`}>
       <Form onSubmit={onFormSubmit}>
-        <Form.Control
+        <Input
+          color="transparent"
           value={note}
-          onChange={(e) => setNote(e.target.value)}
-          type="text"
+          onChangeEvent={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setNote(e.target.value)
+          }
           placeholder="Enter a note..."
         />
         <FloatingLabel
@@ -109,9 +112,7 @@ export const FormComp = () => {
             <option value="Idea">Idea</option>
           </Form.Select>
         </FloatingLabel>
-        <Button type="submit" variant="primary">
-          Add
-        </Button>
+        <Button text="Add" type="submit" size="sm" />
       </Form>
     </div>
   );
